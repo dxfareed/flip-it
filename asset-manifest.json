@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/flip-it/static/css/main.79e2bac8.css",
+    "main.js": "/flip-it/static/js/main.ca32b7ea.js",
+    "static/media/token.png": "/flip-it/static/media/token.857c137328ab2ebe8cb0.png",
+    "static/media/black.png": "/flip-it/static/media/black.c8667081360b976142a6.png",
+    "index.html": "/flip-it/index.html",
+    "main.79e2bac8.css.map": "/flip-it/static/css/main.79e2bac8.css.map",
+    "main.ca32b7ea.js.map": "/flip-it/static/js/main.ca32b7ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79e2bac8.css",
+    "static/js/main.ca32b7ea.js"
+  ]
+}
