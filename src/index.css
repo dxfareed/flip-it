@@ -113,6 +113,9 @@ body{
   .tokenCheck{
     display: none;
   }
+  .desktopview{
+    display: none;
+  }
   /* .external{
       
   } */
@@ -122,6 +125,7 @@ body{
     display: none;
   }
   .desktopview{
+    display: block;
     color: white;
   }
 }
