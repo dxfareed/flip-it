@@ -24,7 +24,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
             num=userClickchc
             wonit=userClickchc*2
             setotVal(userClickchc*2)
-            document.querySelector('.flipdc').style.backgroundColor="rgb(91, 91, 255)"
+            document.querySelector('.flipdc').style.backgroundColor="rgb(81, 134, 233)"
             document.querySelector('.tokenCheck').style.display="none"
             setToken(true)
             setFlip(false)
@@ -71,7 +71,6 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                 setVal(pnum=>pnum+wonit)
                 setImage(blackImage)
                 setText("Tail!, you won")
-                console.log("Tail!, you won")
                 document.querySelector('.text').style.color=" rgb(85, 223, 85)"
             }
             else{

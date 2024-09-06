@@ -8,7 +8,7 @@ const HeadTail=({cacl,setCacl})=>{
     const [text, setText]=useState(null)
     const headM=()=>{
         document.querySelector(".tailslct").style.backgroundColor="rgb(0, 0, 0)";
-        document.querySelector(".headslct").style.backgroundColor="rgb(91, 91, 255)";
+        document.querySelector(".headslct").style.backgroundColor="rgb(81, 134, 233)";
         document.querySelector(".headslct").style.borderRadius="8px 0px 0px 8px";
         document.querySelector(".choice").display="block"
         setGameChoice("Head");
@@ -16,7 +16,7 @@ const HeadTail=({cacl,setCacl})=>{
     }
     const tailM=()=>{
         document.querySelector(".headslct").style.backgroundColor="rgb(0, 0, 0)";
-        document.querySelector(".tailslct").style.backgroundColor="rgb(91, 91, 255)";
+        document.querySelector(".tailslct").style.backgroundColor="rgb(81, 134, 233)";
         document.querySelector(".tailslct").style.borderRadius="0px 8px 8px 0px";
         document.querySelector(".choice").display="block"
         setGameChoice("Tail");
