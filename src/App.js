@@ -7,7 +7,7 @@ import useWalletVal from "./valWallet";
 function App() {
   const {valui,setValui}=useWalletVal()
   return (
-    <Router>
+    <Router basename="/flip-it">
       <div>
         <div className='desktopview'>
           <div>ooopzz!, not available for desktop :(</div>
