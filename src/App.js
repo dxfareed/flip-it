@@ -26,8 +26,6 @@ function App() {
             </div>
           </Route>
           </Switch>
-
-          hello
       </div>
       </div>
     </Router>
