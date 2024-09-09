@@ -25,6 +25,12 @@ function App() {
               </Link> 
             </div>
           </Route>
+          <Route path="*">
+              <div>
+                <div>ohh uhm, this page is not found</div>
+                <div>wanna go back ? <Link to="/">Click  here</Link></div>
+              </div>
+          </Route>
           </Switch>
       </div>
       </div>
