@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/flip-it/static/css/main.54ebe5f8.css",
-    "main.js": "/flip-it/static/js/main.d5241e87.js",
+    "main.css": "/flip-it/static/css/main.704e648c.css",
+    "main.js": "/flip-it/static/js/main.b909f5dc.js",
+    "static/media/fixAutumn.png": "/flip-it/static/media/fixAutumn.96324a6f9a9a9ea233ab.png",
+    "static/media/autumnBlack.png": "/flip-it/static/media/autumnBlack.25b82ae103b813051f01.png",
     "static/media/token.png": "/flip-it/static/media/token.857c137328ab2ebe8cb0.png",
     "static/media/black.png": "/flip-it/static/media/black.c8667081360b976142a6.png",
     "index.html": "/flip-it/index.html",
-    "main.54ebe5f8.css.map": "/flip-it/static/css/main.54ebe5f8.css.map",
-    "main.d5241e87.js.map": "/flip-it/static/js/main.d5241e87.js.map"
+    "main.704e648c.css.map": "/flip-it/static/css/main.704e648c.css.map",
+    "main.b909f5dc.js.map": "/flip-it/static/js/main.b909f5dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.54ebe5f8.css",
-    "static/js/main.d5241e87.js"
+    "static/css/main.704e648c.css",
+    "static/js/main.b909f5dc.js"
   ]
 }
