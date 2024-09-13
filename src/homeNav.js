@@ -1,9 +1,7 @@
 import './index.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { useState } from 'react';
-import useWalletVal from './valWallet';
 import HeadTail from "./ht";
-const HomeNav=({val,setVal})=>{
+const HomeNav=({val,setVal, numi, setNumi})=>{
     return(
         <div>
         <div className="homenav">

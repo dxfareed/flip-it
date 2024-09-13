@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Nav from "./nav";
 import HomeNav from "./homeNav";
 import useWalletVal from "./valWallet";
+import { num } from './valInput';
 function App() {
   const {valui,setValui}=useWalletVal()
   return (

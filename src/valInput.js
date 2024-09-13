@@ -24,7 +24,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
             num=userClickchc
             wonit=userClickchc*2
             setotVal(userClickchc*2)
-            document.querySelector('.flipdc').style.backgroundColor="rgb(81, 134, 233)"
+            document.querySelector('.flipdc').style.backgroundColor=" rgb(219, 144, 31)"
             document.querySelector('.tokenCheck').style.display="none"
             setToken(true)
             setFlip(false)
