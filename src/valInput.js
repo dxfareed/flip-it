@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Flip from "./flipit";
-import tokenImage from './images/token.png'
-import blackImage from './images/black.png'
+import tokenImage from './images/fixAutumn.png'
+import blackImage from './images/autumnBlack.png'
 //import HeadTail from "./ht";
 var num=null;
 var wonit=null;
