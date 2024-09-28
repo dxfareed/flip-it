@@ -1,3 +1,4 @@
+/*@ts-ignore*/
 const Flip=({func})=>{
     //optimize for smalll screen height
     return(

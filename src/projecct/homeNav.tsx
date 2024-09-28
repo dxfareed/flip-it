@@ -3,6 +3,7 @@ import './index.css'
 import HeadTail from "./ht";
 import { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
+//@ts-ignore
 const HomeNav=({val,setVal, numi, setNumi})=>{
     const account = useAccount()
     const { connectors, connect, status, error } = useConnect()

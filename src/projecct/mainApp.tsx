@@ -1,10 +1,11 @@
-import React from 'react'
-import { useState } from 'react';
+//import React from 'react'
+//import { useState } from 'react';
+//@ts-ignore
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Nav from "./nav";
 import HomeNav from "./homeNav";
 import useWalletVal from "./valWallet";
-import { num } from './valInput';
+//import { num } from './valInput';
 function Appsub() {
   const {valui,setValui}=useWalletVal()
   console.log("sucessfully imported")
@@ -18,14 +19,9 @@ function Appsub() {
       <div className="flip-Home">
           <Nav/>
           <Switch>
-          <Route exact path="/"><HomeNav val={valui} setVal={setValui}/></Route>
-          <Route exact path="/external">
-            <div className='external'>
-              <div>wallet feature coming to Later version</div>
-              <Link to="/">
-                &lt;Back to game
-              </Link> 
-            </div>
+          <Route exact path="/">
+          {/*@ts-ignore*/}
+          < HomeNav val={valui} setVal={setValui}/>
           </Route>
           <Route path="*">
               <div>

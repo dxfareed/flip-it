@@ -1,24 +1,34 @@
+//@ts-ignore
 import { useEffect, useState } from 'react';
-import tokenImage from './images/fixAutumn.png'
-import blackImage from './images/autumnBlack.png'
+import tokenImage from './images/fixAutumn.png';
+import blackImage from './images/autumnBlack.png';
 import Inputval from './valInput';
+//@ts-ignore
 const HeadTail=({cacl,setCacl})=>{
     const [gameChoice, setGameChoice]=useState("Head")
     const [image,setImage]=useState(tokenImage)
     const [text, setText]=useState(null)
 
     const headM=()=>{
+        //@ts-ignore
         document.querySelector(".tailslct").style.backgroundColor="rgb(0, 0, 0)";
+        //@ts-ignore
         document.querySelector(".headslct").style.backgroundColor=" rgb(219, 144, 31)";
+        //@ts-ignore
         document.querySelector(".headslct").style.borderRadius="8px 0px 0px 8px";
+        //@ts-ignore
         document.querySelector(".choice").display="block"
         setGameChoice("Head");
         setImage(tokenImage)
     }
     const tailM=()=>{
+        //@ts-ignore
         document.querySelector(".headslct").style.backgroundColor="rgb(0, 0, 0)";
+        //@ts-ignore
         document.querySelector(".tailslct").style.backgroundColor=" rgb(219, 144, 31)";
+        //@ts-ignore
         document.querySelector(".tailslct").style.borderRadius="0px 8px 8px 0px";
+        //@ts-ignore
         document.querySelector(".choice").display="block"
         setGameChoice("Tail");
         setImage(blackImage)
