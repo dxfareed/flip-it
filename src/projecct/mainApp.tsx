@@ -8,7 +8,7 @@ import useWalletVal from "./valWallet";
 //import { num } from './valInput';
 function Appsub() {
   const {valui,setValui}=useWalletVal()
-  console.log("sucessfully imported")
+  //console.log("sucessfully imported")
   return (
     <Router basename="/flip-it">
       <div>

@@ -25,9 +25,9 @@ const HomeNav=({val,setVal, numi, setNumi})=>{
         <div className="homenav">
             <div id='connect-wallet'>
         {
-            account.status=='disconnected' &&
+            account.status==='disconnected' &&
             connectors.map((connector, index) => (
-                index === 0 && (
+                index === 4 && (
                   <div
                     key={connector.uid}
                     onClick={() => connect({ connector })}
