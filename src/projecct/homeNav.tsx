@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom';
 //@ts-ignore
 const HomeNav=({val,setVal})=>{
     const account = useAccount()
-    const { connectors, connect} = useConnect()
-    const { disconnect } = useDisconnect()
+    const { connectors, connect} = useConnect();
+    const { disconnect } = useDisconnect();
     var addrez=JSON.stringify(account.addresses);
     //console.log(connectors)
     return(
@@ -44,7 +44,7 @@ const HomeNav=({val,setVal})=>{
           </div>
             <div id='token-value'>${val}</div>
           </div>
-          <Link  className='rte' to="/flip-it/getToken">
+          <Link  className='rte' to="/getToken">
           <div className='rte'>
               get token
               </div>

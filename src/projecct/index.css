@@ -12,14 +12,66 @@ body{
     height: 100vh;
     background-color: black;
   }
+  .sub-claim-token{
+    margin-top: 60px;
+    font-size: 19px;
+    color: black;
+    background-color: rgb(219, 144, 31);
+    width: 120px;
+    text-align: center;
+    padding: 5px 3px 2px 0;
+  }
+  .sub-burn-token{
+    margin-top: 50px;
+    font-size: 19px;
+    color: black;
+    background-color: rgb(219, 31, 31);
+    width: 120px;
+    text-align: center;
+    padding: 5px 3px 2px 0;
+  }
+  .sub-burn-token > span > input >{
+    width: 20px;
+  }
+  .tota-supp{
+    margin: 10px ;
+  }
+  .tota-supp-text{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .tota-supp-num{
+    font-size: 24px;
+  }
+  .ca-ad{
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .ca-adtxt{
+    font-size: 18px;
+  }
+  .home-txt-rt{
+    margin: 26px 0 0 200px;
+    
+  }
+  #rt{
+    color: rgb(219, 144, 31);
+    font-weight: 600;
+    font-size: 18px;
+  }
   .sub-claim{
     display: flex;
-    justify-content: center;
-    margin:40px;
+    align-items: center;
+    margin:70px;
+    flex-direction: column;
+    height: 50vh;
   }
-  .sub-claim-head{
+  .sub-claim-head, .sub-burn-head{
     font-weight: 700;
     font-size: 19px;
+  }
+  .sub-burn-head{
+    margin-top: 70px;
   }
   .flip-Home{
     display: flex;

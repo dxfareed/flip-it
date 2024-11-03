@@ -1,12 +1,14 @@
 //@ts-ignore
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import { useAccount } from 'wagmi';
 import Nav from "./nav";
 import HomeNav from "./homeNav";
 import useWalletVal from "./valWallet";
 import ClaimPage from './claimpage';
 import SubClaimPage from './subClaimPage';
 function Appsub() {
-  const {valui,setValui}=useWalletVal()
+  const {valui,setValui}=useWalletVal();
+  const{address, status} = useAccount();
   //console.log("sucessfully imported")
   return (
     <Router basename="/flip-it">
@@ -23,9 +25,9 @@ function Appsub() {
             < HomeNav val={valui} setVal={setValui}/>
           </Route>
 
-          <Route exact path="/flip-it/getToken">
+          <Route exact path="/getToken">
             <ClaimPage val={valui} setVal={setValui}/>
-            <SubClaimPage val={valui} setVal={setValui}/>
+            {status=="connected" && (<SubClaimPage val={valui} setVal={setValui}/>)}
           </Route>
 
             <Route path="*">

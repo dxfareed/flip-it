@@ -9,7 +9,7 @@ var useWalletVal=()=>{
     const [valui, setValui]=useState(0)
     async function Balanc(){
         const dec = 1*10**18;
-        var returnBalance;
+        let returnBalance;
         const contract = await new rpc.eth.Contract(abi, ca);
         try{
             await contract.methods.Balance(address).call()
