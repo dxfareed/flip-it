@@ -1,11 +1,10 @@
-//import React from 'react'
-//import { useState } from 'react';
 //@ts-ignore
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Nav from "./nav";
 import HomeNav from "./homeNav";
 import useWalletVal from "./valWallet";
-//import { num } from './valInput';
+import ClaimPage from './claimpage';
+import SubClaimPage from './subClaimPage';
 function Appsub() {
   const {valui,setValui}=useWalletVal()
   //console.log("sucessfully imported")
@@ -21,14 +20,20 @@ function Appsub() {
           <Switch>
           <Route exact path="/">
           {/*@ts-ignore*/}
-          < HomeNav val={valui} setVal={setValui}/>
+            < HomeNav val={valui} setVal={setValui}/>
           </Route>
-          <Route path="*">
-              <div>
-                <div>ohh uhm, this page is not found</div>
-                <div>wanna go back ? <Link to="/">Click  here</Link></div>
-              </div>
+
+          <Route exact path="/flip-it/getToken">
+            <ClaimPage val={valui} setVal={setValui}/>
+            <SubClaimPage val={valui} setVal={setValui}/>
           </Route>
+
+            <Route path="*">
+                <div>
+                  <div>ohh uhm, this page is not found</div>
+                  <div>wanna go back ? <Link to="/">Click  here</Link></div>
+                </div>
+            </Route>
           </Switch>
       </div>
       </div>

@@ -30,7 +30,7 @@ var useWalletVal=()=>{
         }
     }
    useEffect(()=>{
-        Balanc();
+        status=='connected'?Balanc():null;
         console.log("hehhe")  
     }, [valui, status])
     return {valui, setValui}

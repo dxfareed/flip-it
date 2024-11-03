@@ -17,7 +17,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
     const [flip, setFlip]=useState(true)
     const [click,setClick]=useState(true)
     const {status, address} = useAccount()
-    const [boolBal, setBoolBal] = useState("false");
+    //const [boolBal, setBoolBal] = useState("false");
     var alwBoolTrue;
     //@ts-ignore
     const getVal=(cls)=>{
@@ -97,15 +97,17 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                     setText("Head!, you won")
                     /*@ts-ignore*/
                     document.querySelector('.text').style.color=" rgb(85, 223, 85)"
+                    gain();
                 }
                 else if(com=="Tail"&&random==2)
                 {
                     /*@ts-ignore*/
-                    setVal(pnum=>pnum+wonit)
-                    setImage(blackImage)
-                    setText("Tail!, you won")
+                    //setVal(pnum=>pnum+wonit);
+                    setImage(blackImage);
+                    setText("Tail!, you won");
                     /*@ts-ignore*/
                     document.querySelector('.text').style.color=" rgb(85, 223, 85)"
+                    gain();
                 }
                 else{
                     if(random===1){
@@ -129,7 +131,6 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                 },5000)
                 }
         else{
-            console.log(boolBal);
             console.log("FAIled here");
             }
         }
@@ -142,13 +143,23 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
             document.querySelector('.flipdc').style.backgroundColor="rgba(255, 255, 255, 0.425)";
         }
         else{
-            setClick(false)
-            console.log("CHAT")
+            setClick(false);
             setToken(true);
             /*@ts-ignore*/
             document.querySelector('.tokenCheck').style.display="none"/*@ts-ignore*/
             document.querySelector('.flipdc').style.backgroundColor="rgba(255, 255, 255, 0.425)"
             
+        }
+        const gain = async () => {
+        const provider= window.ethereum;
+        const web3 = new Web3(provider);
+        const contract = await new web3.eth.Contract(abi, ca);
+        try {
+          await contract.methods.gain(address, userNum).send({ from: address });
+        }
+        catch(err){
+            console.log(err);
+        }
         }
     }
     return(

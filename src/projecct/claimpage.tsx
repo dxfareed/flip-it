@@ -3,7 +3,7 @@ import HeadTail from "./ht";
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import {Link} from 'react-router-dom';
 //@ts-ignore
-const HomeNav=({val,setVal})=>{
+const ClaimPage=({val,setVal})=>{
     const account = useAccount()
     const { connectors, connect} = useConnect()
     const { disconnect } = useDisconnect()
@@ -44,14 +44,7 @@ const HomeNav=({val,setVal})=>{
           </div>
             <div id='token-value'>${val}</div>
           </div>
-          <Link  className='rte' to="/flip-it/getToken">
-          <div className='rte'>
-              get token
-              </div>
-          </Link>
-            
-        <HeadTail cacl={val} setCacl={setVal}/>
-        </div>
+          </div>
     )
 }
-export default HomeNav;
+export default ClaimPage;
