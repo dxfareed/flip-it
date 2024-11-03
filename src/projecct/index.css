@@ -30,18 +30,19 @@ body{
     padding:0 10px;
   }
   .homenav>div{
-    max-width: 50px;
+    max-width: 70px;
     padding: 3px 5px;
   }
   #connect-wallet{
     border: 1px solid rgba(255, 255, 255, 0.425);
-    font-size: 14px;
-    max-width: 80px;
+    font-size: 16px;
+    max-width: 100px;
     border-radius: 2px;
   }
   #token-value{
     border: 1px solid  rgb(219, 144, 31);
     font-size: 20px;
+    height: 45px;
   }
   .HeadTail{
     display:flex;
@@ -98,7 +99,7 @@ body{
     text-align: center;
   }
   .flip-it{
-    margin-top: 7%;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
   }
@@ -112,7 +113,7 @@ body{
     font-weight: 500;
   }
   .text{
-    margin-top: 3%;
+    margin-top: 5px;
     font-size: 16px;
   }
   .tokenCheck{

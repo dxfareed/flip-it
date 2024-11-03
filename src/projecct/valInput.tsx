@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Flip from "./flipit";
 import tokenImage from './images/fixAutumn.png'
 import blackImage from './images/autumnBlack.png'
-//import HeadTail from "./ht";
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 /*@ts-ignore*/
 var num=null;/*@ts-ignore*/
@@ -15,7 +14,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
     const [flip, setFlip]=useState(true)
     const [click,setClick]=useState(true)
     const account = useAccount()
-    const { connectors, connect, status, error } = useConnect()
+    //const { connectors, connect, status, error } = useConnect()
     /* useEffect(()=>{
         console.log(com)
     },[com]) */

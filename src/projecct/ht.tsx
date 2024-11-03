@@ -5,9 +5,9 @@ import blackImage from './images/autumnBlack.png';
 import Inputval from './valInput';
 //@ts-ignore
 const HeadTail=({cacl,setCacl})=>{
-    const [gameChoice, setGameChoice]=useState("Head")
-    const [image,setImage]=useState(tokenImage)
-    const [text, setText]=useState(null)
+    const [gameChoice, setGameChoice]=useState("Head");
+    const [image,setImage]=useState(tokenImage);
+    const [text, setText]=useState(null);
 
     const headM=()=>{
         //@ts-ignore

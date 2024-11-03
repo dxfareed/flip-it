@@ -1,15 +1,13 @@
-import './index.css'
-//import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import './index.css';
 import HeadTail from "./ht";
-import { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 //@ts-ignore
-const HomeNav=({val,setVal, numi, setNumi})=>{
+const HomeNav=({val,setVal})=>{
     const account = useAccount()
-    const { connectors, connect, status, error } = useConnect()
+    const { connectors, connect} = useConnect()
     const { disconnect } = useDisconnect()
     var addrez=JSON.stringify(account.addresses);
-    //console.log(connectors)
+    console.log(connectors)
     return(
         <div>
             <div style={{
@@ -25,18 +23,33 @@ const HomeNav=({val,setVal, numi, setNumi})=>{
         <div className="homenav">
             <div id='connect-wallet'>
         {
-            account.status==='disconnected' &&
-            connectors.map((connector, index) => (
-                index === 4 && (
+            /* account.status==='disconnected' &&
+            connectors.map((connector) => (
+                connector.id === "coinbaseWalletSDK"  && (
                   <div
                     key={connector.uid}
                     onClick={() => connect({ connector })}
                   >
-                    Connect wallet
+                    COINBASE WALLET
                   </div>
                 )
-              ))
+              )) */
         }
+
+        {
+          account.status==='disconnected' &&
+          connectors.map((connector) => (
+              connector.name === "Coinbase Wallet"  && (
+                <div
+                  key={connector.uid}
+                  onClick={() => connect({ connector })}
+                >
+                  CONNECT WALLET
+                </div>
+              )
+            ))
+      }
+
         {account.status === 'connected' && (
           <div onClick={() => disconnect()}>
             Disconnect wallet
