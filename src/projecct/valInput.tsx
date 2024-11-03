@@ -6,7 +6,7 @@ import { useAccount} from 'wagmi';
 import ca from '../../sc/ca';
 import abi from '../../sc/abi.json';
 import Web3 from "web3";
-var num=null;/*@ts-ignore*/
+var userNum=null;/*@ts-ignore*/
 var wonit=null;
 /*@ts-ignore*/
 const Inputval=({com,val,setVal,setImage,setText})=>{
@@ -17,7 +17,8 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
     const [flip, setFlip]=useState(true)
     const [click,setClick]=useState(true)
     const {status, address} = useAccount()
-    const [boolBal, setBoolBal] = useState(true)
+    const [boolBal, setBoolBal] = useState("false");
+    var alwBoolTrue;
     //@ts-ignore
     const getVal=(cls)=>{
         //4:30am
@@ -25,20 +26,20 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
         //@ts-ignore
         const userClickchc=Number(document.querySelector(vr).innerHTML.slice(1))
         //@ts-ignore
-        setStrInp(userClickchc)
+        setStrInp(userClickchc);
         //i miss the old kanye
         if(userClickchc < val){
-            num=userClickchc
+            userNum=userClickchc
             wonit=userClickchc*2//@ts-ignore
             setotVal(userClickchc*2)//@ts-ignore
             document.querySelector('.flipdc').style.backgroundColor=" rgb(219, 144, 31)"//@ts-ignore
             document.querySelector('.tokenCheck').style.display="none"//@ts-ignore
-            setToken(true)
-            setFlip(false)
+            setToken(true);
+            setFlip(false);
         }
         else{
-            setFlip(true)
-            setToken(false)
+            setFlip(true);
+            setToken(false);
             /*@ts-ignore*/
             document.querySelector('.tokenCheck').style.display="block"//@ts-ignore
             setotVal(userClickchc*2)//@ts-ignore
@@ -51,34 +52,29 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
         const web3 = new Web3(provider);
         const contract = await new web3.eth.Contract(abi, ca);
         try {
-          await contract.methods.flipClick(address, num).send({ from: address })
-          .then(()=>{
-            setBoolBal(true);
-        })
-          .catch(()=>{
-            setBoolBal(false);
-            console.log("Failed trnx");
-          }  
-        );
+          await contract.methods.flipClick(address, userNum).send({ from: address });
+          alwBoolTrue=true;
         }
         catch(err){
-            setBoolBal(false);
-            console.log("trnx didn't go thru")
+            alwBoolTrue=false;
+            /*@ts-ignore*/
+            document.querySelector('.tranx-failed').style.display="block";
+            setTimeout(()=>{
+             /*@ts-ignore*/
+            document.querySelector('.tranx-failed').style.display="none";
+            },5000); 
+
         }
     }
-
-
     //failed trnx still flip, fix later
-
-
     const zp = async() =>{
-        console.log(val, com, num);
-        setClick(false)
-        if( ( !flip && num < val)){
-           await removeToken();
+        //setClick(false);
+        console.log(val, com, userNum);
+        if( ( !flip && userNum < val)){
+           await removeToken(); 
            async function decid(){
-            if(boolBal){
-                console.log(" success")
+            if(alwBoolTrue){
+                console.log("success")
                 var random=Math.ceil(Math.random()*2) 
                 var rsd=com
                 var t=setInterval(()=>{
@@ -93,7 +89,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                 }, 400);
                 setTimeout(()=>{
                     /*@ts-ignore*/
-                setVal(pnum=>pnum-num)
+                setVal(pnum=>pnum-userNum)
                 if(com=="Head"&&random==1){
                     /*@ts-ignore*/
                     setVal(pnum=>pnum+wonit)
@@ -113,40 +109,40 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                 }
                 else{
                     if(random===1){
-                       setText("u lost, Head won!")  
+                       setText("u lost, Head won!");  
                        /*@ts-ignore*/
                         document.querySelector('.text').style.color="red"       
                     }
                     else if(random===2){
-                        setText("u lost, Tail won!")
+                        setText("u lost, Tail won!");
                         /*@ts-ignore*/
                         document.querySelector('.text').style.color="red"
                     }
                 }   
                 setClick(true);
                     /*@ts-ignore*/
-                    document.querySelector('.text').style.display="block"
-                    setClick(true)
+                    document.querySelector('.text').style.display="block";
+                    setClick(true);
                     /*@ts-ignore*/
                     setTimeout(()=>document.querySelector('.text').style.display="none",5000)
-                    clearInterval(t)
+                    clearInterval(t);
                 },5000)
                 }
-            else{
-                console.log(boolBal);
-                console.log("FAIled here")
+        else{
+            console.log(boolBal);
+            console.log("FAIled here");
             }
-           }
-           await decid();
+        }
+           decid();
+            //setTimeout(decid, 100);
         }    
-        else if(( !flip && num > val)){
+        else if(( !flip && userNum > val)){
             /*@ts-ignore*/
             document.querySelector('.tokenCheck').style.display="block"/*@ts-ignore*/
             document.querySelector('.flipdc').style.backgroundColor="rgba(255, 255, 255, 0.425)";
-            setClick(true);
         }
         else{
-            //setClick(true)
+            setClick(false)
             console.log("CHAT")
             setToken(true);
             /*@ts-ignore*/
@@ -177,5 +173,5 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
         </div>
     )
 }
-export {num}
+export {userNum}
 export default Inputval;

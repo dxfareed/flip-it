@@ -1,5 +1,5 @@
 //@ts-ignore
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import tokenImage from './images/fixAutumn.png';
 import blackImage from './images/autumnBlack.png';
 import Inputval from './valInput';
@@ -36,6 +36,12 @@ const HeadTail=({cacl,setCacl})=>{
     return(
         <div>
         <div className="text" style={{textAlign:"center"}}>{text}</div>
+        <div className="tranx-failed" style={{
+            textAlign:"center",
+            fontSize:"20px",
+            fontWeight: "700",
+            color: "red"
+        }}>TRANSCATION FAILED!</div>
         <div className="HeadTail">
             <div className="imgToken">
                 <img src={image}

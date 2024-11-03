@@ -7,7 +7,7 @@ const HomeNav=({val,setVal})=>{
     const { connectors, connect} = useConnect()
     const { disconnect } = useDisconnect()
     var addrez=JSON.stringify(account.addresses);
-    console.log(connectors)
+    //console.log(connectors)
     return(
         <div>
             <div style={{
@@ -23,20 +23,6 @@ const HomeNav=({val,setVal})=>{
         <div className="homenav">
             <div id='connect-wallet'>
         {
-            /* account.status==='disconnected' &&
-            connectors.map((connector) => (
-                connector.id === "coinbaseWalletSDK"  && (
-                  <div
-                    key={connector.uid}
-                    onClick={() => connect({ connector })}
-                  >
-                    COINBASE WALLET
-                  </div>
-                )
-              )) */
-        }
-
-        {
           account.status==='disconnected' &&
           connectors.map((connector) => (
               connector.name === "MetaMask"  && (
@@ -49,7 +35,6 @@ const HomeNav=({val,setVal})=>{
               )
             ))
       }
-
         {account.status === 'connected' && (
           <div onClick={() => disconnect()}>
             Disconnect wallet
