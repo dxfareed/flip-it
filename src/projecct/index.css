@@ -9,7 +9,7 @@ body{
 }
 @media (min-width: 300px) and (max-width: 512px) {
   body{
-    height: 120vh;
+    height: 136vh;
     background-color: black;
   }
   .sub-claim-token{
