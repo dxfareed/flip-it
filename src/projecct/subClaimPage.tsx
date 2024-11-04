@@ -8,9 +8,11 @@ export default function SubClaimPage({ val, setVal }) {
     const { address, status } = useAccount();
     const [_totalSupply, setTotalSupply] = useState(null);
     const claim = async () => {
+    const provider = window.ethereum;
+    const web3 = new Web3(provider);
+    const contract = await new web3.eth.Contract(abi, ca);
         try {
-            const provider = window.ethereum;
-            const web3 = new Web3(provider);
+            await contract.methods.Claim(address).send({ from: address })
             await Balanc();
         }
         catch (err) {
@@ -88,11 +90,7 @@ export default function SubClaimPage({ val, setVal }) {
                 <div>
                 </div>
                 <div className="sub-burn-head">Burn Flip'it token</div>
-                <div className="sub-burn-token" onClick={
-                    () => {
-                        val > 1000 ? burn : alert("Insufficient Token!")
-                    }
-                }>
+                <div className="sub-burn-token" onClick={burn}>
                     <div>BURN</div>
                     <div>1000 STR</div>
                 </div>
@@ -104,7 +102,11 @@ export default function SubClaimPage({ val, setVal }) {
             </div>
             <div className="ca">
                 <div className="ca-adtxt">CONTRACT ADDRESS :</div>
-                <div className="ca-ad">{ca}</div>
+                <div className="ca-ad">
+                    <div>
+                    {ca}
+                    </div>
+                </div>
             </div>
         </div>
     )

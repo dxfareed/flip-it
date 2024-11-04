@@ -56,6 +56,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
           alwBoolTrue=true;
         }
         catch(err){
+            console.log(err)
             alwBoolTrue=false;
             /*@ts-ignore*/
             document.querySelector('.tranx-failed').style.display="block";
@@ -68,7 +69,6 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
     }
     //failed trnx still flip, fix later
     const zp = async() =>{
-        //setClick(false);
         console.log(val, com, userNum);
         if( ( !flip && userNum < val)){
            await removeToken(); 
@@ -89,47 +89,45 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                 }, 400);
                 setTimeout(()=>{
                     /*@ts-ignore*/
-                setVal(pnum=>pnum-userNum)
-                if(com=="Head"&&random==1){
-                    /*@ts-ignore*/
-                    setVal(pnum=>pnum+wonit)
-                    setImage(tokenImage)
-                    setText("Head!, you won")
-                    /*@ts-ignore*/
-                    document.querySelector('.text').style.color=" rgb(85, 223, 85)"
-                    gain();
-                }
-                else if(com=="Tail"&&random==2)
-                {
-                    /*@ts-ignore*/
-                    //setVal(pnum=>pnum+wonit);
-                    setImage(blackImage);
-                    setText("Tail!, you won");
-                    /*@ts-ignore*/
-                    document.querySelector('.text').style.color=" rgb(85, 223, 85)"
-                    gain();
-                }
-                else{
-                    if(random===1){
-                       setText("u lost, Head won!");  
-                       /*@ts-ignore*/
-                        document.querySelector('.text').style.color="red"       
-                    }
-                    else if(random===2){
-                        setText("u lost, Tail won!");
+                    if(com=="Head"&&random==1){
                         /*@ts-ignore*/
-                        document.querySelector('.text').style.color="red"
+                        setVal(pnum=>pnum+wonit)
+                        setImage(tokenImage)
+                        setText("Head!, you won")
+                        /*@ts-ignore*/
+                        document.querySelector('.text').style.color=" rgb(85, 223, 85)"
+                        gain();
                     }
-                }   
-                setClick(true);
+                    else if(com=="Tail"&&random==2)
+                    {
+                        /*@ts-ignore*/
+                        //setVal(pnum=>pnum+wonit);
+                        setImage(blackImage);
+                        setText("Tail!, you won");
+                        /*@ts-ignore*/
+                        document.querySelector('.text').style.color=" rgb(85, 223, 85)"
+                        gain();
+                    }
+                    else{
+                        if(random===1){
+                        setText("u lost, Head won!");  
+                        /*@ts-ignore*/
+                            document.querySelector('.text').style.color="red"       
+                        }
+                        else if(random===2){
+                            setText("u lost, Tail won!");
+                            /*@ts-ignore*/
+                            document.querySelector('.text').style.color="red"
+                        }
+                    }   
+                setClick(false);
                     /*@ts-ignore*/
                     document.querySelector('.text').style.display="block";
-                    setClick(true);
                     /*@ts-ignore*/
-                    setTimeout(()=>document.querySelector('.text').style.display="none",5000)
-                    clearInterval(t);
+                setTimeout(()=>document.querySelector('.text').style.display="none",5000)
+                clearInterval(t);
                 },5000)
-                }
+            }
         else{
             console.log("FAIled here");
             }

@@ -9,7 +9,7 @@ body{
 }
 @media (min-width: 300px) and (max-width: 512px) {
   body{
-    height: 100vh;
+    height: 120vh;
     background-color: black;
   }
   .sub-claim-token{
@@ -44,15 +44,15 @@ body{
     font-size: 24px;
   }
   .ca-ad{
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 600;
+    width: 50px;
   }
   .ca-adtxt{
     font-size: 18px;
   }
   .home-txt-rt{
-    margin: 26px 0 0 200px;
-    
+    margin: 15px 0 0 20px;  
   }
   #rt{
     color: rgb(219, 144, 31);
