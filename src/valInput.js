@@ -106,14 +106,26 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
             {tokenText&&<div>get ${totValue} for ${strInp}</div>}
             <div className="input-value">
                 <div className="sub-input">
-                    <div className="one" onClick={()=>getVal("one")}>$1</div>
-                    <div className="two" onClick={()=>getVal("two")}>$5</div>
-                    <div className="thr" onClick={()=>getVal("thr")}>$10</div>
+                    <div style={{
+                cursor: "pointer"
+                }} className="one" onClick={()=>getVal("one")}>$1</div>
+                    <div style={{
+                cursor: "pointer"
+                }} className="two" onClick={()=>getVal("two")}>$5</div>
+                    <div style={{
+                cursor: "pointer"
+                }} className="thr" onClick={()=>getVal("thr")}>$10</div>
                 </div>
                 <div className="sub-input">
-                    <div className="f4" onClick={()=>getVal("f4")}>$20</div>
-                    <div className="fv" onClick={()=>getVal("fv")}>$50</div>
-                    <div className="si" onClick={()=>getVal("si")}>$100</div>
+                    <div style={{
+                cursor: "pointer"
+                }} className="f4" onClick={()=>getVal("f4")}>$20</div>
+                    <div style={{
+                cursor: "pointer"
+                }} className="fv" onClick={()=>getVal("fv")}>$50</div>
+                    <div style={{
+                cursor: "pointer"
+                }} className="si" onClick={()=>getVal("si")}>$100</div>
                 </div>
             </div>
             <div className="tokenCheck" style={{color:"red"}}>token not enough,top up wallet</div>

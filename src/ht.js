@@ -38,8 +38,12 @@ const HeadTail=({cacl,setCacl})=>{
             </div>
             <div><div className="choice"style={{marginTop:"35px"}}>{gameChoice} selected</div></div>
             <div className='sub-decision'>
-                <div className='headslct' onClick={()=>headM()}>Head</div>
-                <div className='tailslct'onClick={()=>tailM()}>Tail</div>
+                <div style={{
+                cursor: "pointer"
+                }} className='headslct' onClick={()=>headM()}>Head</div>
+                <div style={{
+                cursor: "pointer"
+                }} className='tailslct'onClick={()=>tailM()}>Tail</div>
             </div>
         </div>
         <Inputval com={gameChoice} val={cacl} setVal={setCacl} setImage={setImage} setText={setText}/>

@@ -9,10 +9,10 @@ function App() {
   return (
     <Router basename="/flip-it">
       <div>
-        <div className='desktopview'>
+        {/*<div className='desktopview'>
           <div>ooopzz!, not available for desktop :(</div>
           <div>Desktop version coming soon</div>
-        </div>
+        </div>*/}
       <div className="flip-Home">
           <Nav/>
           <Switch>
