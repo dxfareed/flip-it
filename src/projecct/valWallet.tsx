@@ -15,7 +15,7 @@ var useWalletVal=()=>{
             await contract.methods.Balance(address).call()
             .then((res)=> {
                 returnBalance=Number(res)/dec;
-                setValui(returnBalance);
+                setValui(Math.round(returnBalance));
             })
             .catch((err)=> {
                 returnBalance=0;

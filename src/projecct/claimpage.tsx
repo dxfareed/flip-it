@@ -1,7 +1,6 @@
 import './index.css';
 import HeadTail from "./ht";
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
-import {Link} from 'react-router-dom';
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
 //@ts-ignore
 const ClaimPage=({val,setVal})=>{
     const account = useAccount()

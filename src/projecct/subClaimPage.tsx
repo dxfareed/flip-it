@@ -28,12 +28,12 @@ export default function SubClaimPage({ val, setVal }) {
             await contract.methods.Balance(address).call()
                 .then((res) => {
                     returnBalance = Number(res) / dec;
-                    setVal(returnBalance);
+                    setVal(Math.round(returnBalance));
                 })
                 .catch((err) => {
                     returnBalance = 0;
                     console.log(err);
-                    setVal(returnBalance);
+                    setVal(Math.round(returnBalance));
                 }
                 );
         }
@@ -62,7 +62,8 @@ export default function SubClaimPage({ val, setVal }) {
         try {
             await contract.methods.totalSupply().call().then((res) => {
                 _totalSupply_ = Number(res) / dec;
-                setTotalSupply(_totalSupply_)
+                //@ts-ignore
+                setTotalSupply(Math.round(_totalSupply_))
             })
         }
         catch (err) {
@@ -100,14 +101,14 @@ export default function SubClaimPage({ val, setVal }) {
                     <Link to='/' id="rt"> back to Game </Link>
                 </div>
             </div>
-            <div className="ca">
+            {/* <div className="ca">
                 <div className="ca-adtxt">CONTRACT ADDRESS :</div>
                 <div className="ca-ad">
                     <div>
                     {ca}
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

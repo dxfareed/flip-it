@@ -8,7 +8,7 @@ const HomeNav=({val,setVal})=>{
     const { connectors, connect} = useConnect();
     const { disconnect } = useDisconnect();
     var addrez=JSON.stringify(account.addresses);
-    //console.log(connectors)
+    console.log(connectors)
     return(
         <div>
             <div style={{
@@ -26,7 +26,8 @@ const HomeNav=({val,setVal})=>{
         {
           account.status==='disconnected' &&
           connectors.map((connector) => (
-              connector.name === "Coinbase Wallet"  && (
+              //connector.name === "Coinbase Wallet"  && (
+                connector.name === "Injected"  && (
                 <div
                   key={connector.uid}
                   onClick={() => connect({ connector })}
