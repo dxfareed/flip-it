@@ -27,7 +27,7 @@ const HomeNav=({val,setVal})=>{
           account.status==='disconnected' &&
           connectors.map((connector) => (
               //connector.name === "Coinbase Wallet"  && (
-                connector.name === "Injected"  && (
+                connector.name === "MetaMask"  && (
                 <div
                   key={connector.uid}
                   onClick={() => connect({ connector })}

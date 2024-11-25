@@ -19,6 +19,10 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
     const {status, address} = useAccount()
     //const [boolBal, setBoolBal] = useState("false");
     var alwBoolTrue;
+
+    if(status=="disconnected" || status=="reconnecting"){
+        setVal(0);
+    }
     //@ts-ignore
     const getVal=(cls)=>{
         //4:30am
@@ -47,6 +51,31 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
             document.querySelector('.flipdc').style.backgroundColor="rgba(255, 255, 255, 0.425)"//@ts-ignore
         }
     }
+
+    async function Balanc() {
+        const rpc = new Web3("https://sepolia.base.org");
+        var returnBalance;
+        const dec = 1 * 10 ** 18;
+        const contract = await new rpc.eth.Contract(abi, ca);
+        try {
+            await contract.methods.Balance(address).call()
+                .then((res) => {
+                    returnBalance = Number(res) / dec;
+                    setVal(Math.round(returnBalance));
+                })
+                .catch((err) => {
+                    returnBalance = 0;
+                    console.log(err);
+                    setVal(Math.round(returnBalance));
+                }
+                );
+        }
+        catch (err) {
+            setVal(0);
+            console.log(err);
+        }
+    }
+
     const removeToken = async()=>{
         const provider= window.ethereum;
         const web3 = new Web3(provider);
@@ -54,10 +83,12 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
         try {
           await contract.methods.flipClick(address, userNum).send({ from: address });
           alwBoolTrue=true;
+          Balanc();
         }
         catch(err){
             console.log(err)
             alwBoolTrue=false;
+            Balanc()
             /*@ts-ignore*/
             document.querySelector('.tranx-failed').style.display="block";
             setTimeout(()=>{
@@ -91,11 +122,12 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                     /*@ts-ignore*/
                     if(com=="Head"&&random==1){
                         /*@ts-ignore*/
-                        setVal(pnum=>pnum+wonit)
+                        //setVal(pnum=>pnum+wonit)
                         setImage(tokenImage)
                         setText("Head!, you won")
                         /*@ts-ignore*/
-                        document.querySelector('.text').style.color=" rgb(85, 223, 85)"
+                        document.querySelector('.text').style.color="rgb(85, 223, 85)";
+                        setClick(true);
                         gain();
                     }
                     else if(com=="Tail"&&random==2)
@@ -105,7 +137,8 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                         setImage(blackImage);
                         setText("Tail!, you won");
                         /*@ts-ignore*/
-                        document.querySelector('.text').style.color=" rgb(85, 223, 85)"
+                        document.querySelector('.text').style.color="rgb(85, 223, 85)";
+                        setClick(true);
                         gain();
                     }
                     else{
@@ -119,13 +152,15 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
                             /*@ts-ignore*/
                             document.querySelector('.text').style.color="red"
                         }
+                        setClick(true);
                     }   
-                setClick(false);
-                    /*@ts-ignore*/
-                    document.querySelector('.text').style.display="block";
-                    /*@ts-ignore*/
-                setTimeout(()=>document.querySelector('.text').style.display="none",5000)
+                //setClick(false);
+                /*@ts-ignore*/
+                document.querySelector('.text').style.display="block";
+                /*@ts-ignore*/
+                setTimeout(()=>document.querySelector('.text').style.display="none",5000);
                 clearInterval(t);
+
                 },5000)
             }
         else{
@@ -139,6 +174,7 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
             /*@ts-ignore*/
             document.querySelector('.tokenCheck').style.display="block"/*@ts-ignore*/
             document.querySelector('.flipdc').style.backgroundColor="rgba(255, 255, 255, 0.425)";
+            setClick(false);
         }
         else{
             setClick(false);
@@ -154,9 +190,12 @@ const Inputval=({com,val,setVal,setImage,setText})=>{
         const contract = await new web3.eth.Contract(abi, ca);
         try {
           await contract.methods.gain(address, userNum).send({ from: address });
+          Balanc()
+          setClick(true)
         }
         catch(err){
             console.log(err);
+            Balanc()
         }
         }
     }

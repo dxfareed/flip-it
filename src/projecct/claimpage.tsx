@@ -17,7 +17,7 @@ const ClaimPage=({val,setVal})=>{
             <div  style={{
                 textAlign:"center"
             }}>{
-                   account.status=='connected'&&`${addrez.slice(2,6)}....${addrez.slice(addrez.length-6,addrez.length-2)}`
+                  account.status=='connected'&&`${addrez.slice(2,6)}....${addrez.slice(addrez.length-6,addrez.length-2)}`
                 }
             </div>
         <div className="homenav">
@@ -25,7 +25,7 @@ const ClaimPage=({val,setVal})=>{
         {
           account.status==='disconnected' &&
           connectors.map((connector) => (
-              connector.name === "Coinbase Wallet"  && (
+              connector.name === "MetaMask"  && (
                 <div
                   key={connector.uid}
                   onClick={() => connect({ connector })}
